@@ -8,7 +8,7 @@ namespace Assignment5
     public class Item
     {
         public string Name { get; set; }
-        public int Amount { get; set; }
+        public int ContextAmount { get; set; } // Consumable (how much is restored) / Key (uses) / Equipment (damage)
 
         public ItemGroup Group { get; set; }
 
@@ -21,14 +21,14 @@ namespace Assignment5
         public Item(string name, int amount, ItemGroup group)
         {
             Name = name;
-            Amount = amount;
+            ContextAmount = amount;
             Group = group;
         }
 
         public override string ToString()
         {
             // TODO: display the output like this Axe
-            return base.ToString();
+            return this.Name;
         }
     }
 }
