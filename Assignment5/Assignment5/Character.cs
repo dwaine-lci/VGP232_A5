@@ -54,14 +54,26 @@ namespace Assignment5
 
             Health -= damage;
         }
-  
+
         /// <summary>
         /// Restore the health of the player by the amount specified up to the max health.
         /// </summary>
         /// <param name="amount">The amount of health to recover</param>
         public void RestoreHealth(int amount)
         {
-            Health = 1;
+            if (IsAlive == false)
+            {
+                return;
+            }
+
+            if (Health + amount > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
+            else
+            {
+                Health += amount;
+            }
         }
 
         public override string ToString()
