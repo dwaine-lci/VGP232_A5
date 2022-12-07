@@ -42,9 +42,19 @@ namespace Assignment5
         /// <param name="damage">The amount of damage taken</param>
         public void TakeDamage(int damage)
         {
-            Health = 100;
-        }
+            if (Health <= 0 || IsAlive == false)
+            {
+                return;
+            }
 
+            if (damage > Health)
+            {
+                IsAlive = false;
+            }
+
+            Health -= damage;
+        }
+  
         /// <summary>
         /// Restore the health of the player by the amount specified up to the max health.
         /// </summary>
